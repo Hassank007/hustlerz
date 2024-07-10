@@ -2,32 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@media (min-width: 641px) {
+ 
 }
+
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: transform 1s;
+}
+@media (max-width: 640px) {
+  .container {
+    display: none;
   }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: auto;
+    width: 100%;
+    overflow: hidden
+  }
+
+  .section {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+  }
+}
+
+.pheader{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.pcolor{
+  color: #1F51FF
+
+}
+.bg-secondary{
+  background: rgb(31,81,255);
+background: linear-gradient(180deg, rgba(31,81,255,1) 15%, rgba(31,81,255,0.5466561624649859) 33%, rgba(76,134,177,1) 100%);
 }
