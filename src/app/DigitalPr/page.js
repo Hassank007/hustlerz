@@ -41,7 +41,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Navbar ncolor={'bg-[#231f20]'}/>
+      <Navbar ncolor={'bg-white'}/>
       <div className="relative">
         <img
           src="./digitalpr.webp"
@@ -50,11 +50,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-secondary opacity-95"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center sm:pt-20">
           <h1 className="text-white text-3xl sm:text-6xl font-bold pheader text-center">
-            Marketing without Design is lifeless and Design <br />
-            without Marketing is mute
+          "Digital PR without strategy is directionless, and strategy without Digital PR is voiceless."
           </h1>
           <p className="text-white sm:text-3xl font-bold pheader text-center pt-10">
-            (Neil Turok)
+          — Mark Doorman
           </p>
         </div>
       </div>
@@ -69,7 +68,7 @@ export default function HomePage() {
             </h1>
           </div>
           <form className="space-y-4" ref={form} onSubmit={sendEmail}>
-            <div className="flex sm:flex-row flex-col py-10 space-y-2">
+            <div className="flex sm:flex-row flex-col py-10 space-y-2 items-center justify-center">
               <div className="sm:space-x-4 sm:px-4 flex flex-col">
                 <label htmlFor="name" className="text-sm text-black sm:pl-4">
                   Name

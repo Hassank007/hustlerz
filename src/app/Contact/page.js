@@ -12,10 +12,20 @@ export default function Page() {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_q3231i8", "template_quzf1b9", form.current, "DEpvCeD6sw2Us6CWj")
+      .sendForm(
+        "service_q3231i8",
+        "template_quzf1b9",
+        form.current,
+        "DEpvCeD6sw2Us6CWj"
+      )
       .then(
         () => {
           setNotification("Your message has been sent!");
+          console.log("Success");
+
+          // Reset form fields
+          form.current.reset();
+
           setTimeout(() => {
             setNotification("");
           }, 3000);
@@ -28,9 +38,12 @@ export default function Page() {
 
   return (
     <>
-      <Navbar ncolor={'bg-[#231f20]'}/>
+      <Navbar ncolor={"bg-white"} />
       <div className="relative">
-        <img src="./digitalpr.webp" className="w-full h-[30rem] sm:h-[28rem] object-cover" />
+        <img
+          src="./contact2.jpg"
+          className="w-full h-[30rem] sm:h-[28rem] object-cover"
+        />
         <div className="absolute inset-0 bg-secondary opacity-95"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center sm:pt-20">
           <h1 className="text-white text-3xl sm:text-6xl font-bold pheader text-center">
@@ -39,7 +52,7 @@ export default function Page() {
         </div>
       </div>
       <div className="flex flex-col sm:flex-row justify-center items-center bg-white sm:h-[58rem] h[85rem] ">
-        <div >
+        <div>
           <form className="space-y-4" ref={form} onSubmit={sendEmail}>
             <div className="flex flex-col py-5 space-y-4">
               <div className="space-x-4 px-4 flex flex-col">
@@ -95,13 +108,20 @@ export default function Page() {
             </div>
             <div className="pl-3 text-base pheader space-x-3">
               <label>
-                <input type="checkbox" name="agree_to_terms" value="yes" className=""/>
-                &nbsp; By entering your phone number, you agree to receive text messages to our
+                <input
+                  type="checkbox"
+                  name="agree_to_terms"
+                  required
+                  value="yes"
+                  className=""
+                />
+                &nbsp; By entering your phone number, you agree to receive text
+                messages to our
                 <br />
                 terms of use and privacy policy
               </label>
             </div>
-            
+
             <div className="p-1 py-5 px-3">
               <button
                 type="submit"
@@ -111,22 +131,31 @@ export default function Page() {
               </button>
             </div>
           </form>
-          {notification && <div className="notification">{notification}</div>}
+
+          {/* Display notification below the form */}
+          {notification && (
+            <div className="mt-5 px-4 py-2 text-center text-white bg-green-600">
+              {notification}
+            </div>
+          )}
         </div>
+
         <div className="sm:mb-[19rem] sm:ml-10 ml-4">
           <h1 className="text-3xl font-bold text-black pheader pt-5 sm:pt-0 ">
             Let’s Collaborate!
           </h1>
           <p className="sm:w-[45rem] w-full">
-            If you like to have a chat with us about any digital requirements, require our
-            services to design your website, or want us to run your marketing campaign and
-            connect your brand to your customers, give us a call or fill out the form below and
-            we’ll get in touch – or just swing by for a game of pool and a cup of coffee. We’re
-            here 24/7 to give you the best service in town and to make sure all your business
+            If you like to have a chat with us about any digital requirements,
+            require our services to design your website, or want us to run your
+            marketing campaign and connect your brand to your customers, give us
+            a call or fill out the form below and we’ll get in touch – or just
+            swing by for a game of pool and a cup of coffee. We’re here 24/7 to
+            give you the best service in town and to make sure all your business
             needs are met within your desired time frame.
           </p>
           <p className="py-10">
-            Our project manager will be reaching out to you via text/call shortly.
+            Our project manager will be reaching out to you via text/call
+            shortly.
           </p>
           <div className="flex sm:flex-row flex-col sm:gap-32">
             <div className="flex flex-col">
@@ -138,17 +167,13 @@ export default function Page() {
             </div>
             <div className="flex flex-col">
               <h1 className="pheader text-2xl text-black py-5"> E-Mail:</h1>
-              <h2 className="text-[#1F51FF] text-base">
-                info@olivedigital.com
-              </h2>
-              <h2 className="text-[#1F51FF] text-base">careers@olivedigital.com</h2>
+              <h2 className="text-[#1F51FF] text-base">info@Husherz.com</h2>
+              <h2 className="text-[#1F51FF] text-base">careers@Husherz.com</h2>
             </div>
           </div>
           <div className="flex flex-col">
             <h1 className="pheader text-2xl text-black py-5"> Phone:</h1>
-            <h2 className="text-[#1F51FF] text-base pb-10">
-              +1 (888) 2073409
-            </h2>
+            <h2 className="text-[#1F51FF] text-base pb-10">+1 (888) 2073409</h2>
           </div>
         </div>
       </div>

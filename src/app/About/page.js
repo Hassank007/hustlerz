@@ -13,15 +13,14 @@ const page = () => {
     <>
       <Navbar ncolor={'bg-white'} textcolor={'text-black'}/>
       <div className="relative">
-        <img src="./digitalpr.webp" className="w-full h-[30rem] sm:h-[40rem] object-cover" />
+        <img src="./digitalpr1.jpg" className="w-full h-[30rem] sm:h-[40rem] object-cover" />
         <div className="absolute inset-0 bg-secondary opacity-95"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center">
           <h1 className="text-white text-3xl sm:text-6xl font-bold pheader text-center">
-            “We are analog beings living in a digital world,
-            <br /> facing a quantum future”
+          "We are innovators at heart, navigating a digital world,<br/> and shaping a future driven by possibility."
           </h1>
           <p className="text-white sm:text-3xl font-bold pheader text-center pt-10">
-            (Neil Turok)
+          — Neil Turok
           </p>
         </div>
       </div>

@@ -8,17 +8,17 @@ import { CiMobile3 } from "react-icons/ci";
 import Footer from "../components/Footer";
 const page = () => {
     return (
-        <><Navbar ncolor={'bg-[#231f20]'}/>
+        <><Navbar ncolor={'bg-white'}/>
         <div className="relative">
-            <img src="./digitalpr.webp" className="w-full h-[30rem] sm:h-[33rem] object-cover" />
+            <img src="./service.jpg" className="w-full h-[30rem] sm:h-[33rem] object-cover" />
             <div className="absolute inset-0 bg-secondary opacity-95"></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center sm:pt-20">
                 <h1 className="text-white text-3xl sm:text-6xl font-bold pheader text-center">
-                Marketing without Design is lifeless and Design <br />without  Marketing is mute
+                "Service without quality is empty,<br/> and quality without service is unnoticed."
                     
                 </h1>
                 <p className="text-white sm:text-3xl font-bold pheader text-center pt-10">
-                    (Neil Turok)
+                — James Bowman
                 </p>
             </div>
         </div>

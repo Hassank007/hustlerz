@@ -23,9 +23,15 @@ const Footer = () => {
           them into innovative digital solutions for you.
         </h1>
         <div className="pt-5">
-          <p className="text-white pheader text-center sm:text-start">info@olivedigital.com</p>
-          <p className="text-white pheader text-center sm:text-start">careers@olivedigital.com</p>
-          <p className="text-white pheader text-center sm:text-start">+1 (888) 2073409</p>
+          <p className="text-white pheader text-center sm:text-start">
+            info@Husherz.com
+          </p>
+          <p className="text-white pheader text-center sm:text-start">
+            careers@Husherz.com
+          </p>
+          <p className="text-white pheader text-center sm:text-start">
+            +1 (888) 2073409
+          </p>
         </div>
         <div className="flex flex-row gap-3 pt-5">
           <FaFacebookF className="text-white text-xl cursor-pointer hover:text-[#1F51FF]" />

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -67,6 +69,35 @@ body {
 
 }
 .bg-secondary{
-  background: rgb(31,81,255);
-background: linear-gradient(180deg, rgba(31,81,255,1) 15%, rgba(31,81,255,0.5466561624649859) 33%, rgba(76,134,177,1) 100%);
+  background: rgb(62,56,248);
+background: linear-gradient(180deg, rgba(62,56,248,0.9220063025210083) 0%, rgba(53,54,249,0.6054796918767507) 30%, rgba(49,52,249,0.4234068627450981) 58%, rgba(53,53,249,0.28895308123249297) 100%);
 }
+
+  .loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Light overlay */
+    z-index: 9999; /* Ensure it's above all content */
+  }
+
+  .spinner-border {
+    border: 4px solid transparent; /* Spinner */
+    border-top-color: #3498db; /* Spinner color */
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+

@@ -14,88 +14,95 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import Homepagemobile from "../components/Homepagemobile";
 
-export default function HomePage1() {
-  const [currentSection, setCurrentSection] = useState(0);
-  const totalSections = 4;
 
-  const updateSection = () => {
-    const sections = document.querySelectorAll(".section");
-    sections.forEach((section, index) => {
-      const left = section.querySelector(".left");
-      const right = section.querySelector(".right");
-
-      if (index === currentSection) {
-        section.style.zIndex = 2; // Ensure the current section is above the others
-        left.style.transform = "translateY(0)";
-        right.style.transform = "translateY(0)";
-      } else if (index < currentSection) {
-        section.style.zIndex = 1; // Ensure previous sections are below the current one
-        left.style.transform = "translateY(-100vh)";
-        right.style.transform = "translateY(100vh)";
-      } else {
-        section.style.zIndex = 1; // Ensure next sections are below the current one
-        left.style.transform = "translateY(100vh)";
-        right.style.transform = "translateY(-100vh)";
-      }
-    });
-  };
-
-  const handleScroll = (event) => {
-    if (event.deltaY > 0) {
-      if (currentSection < totalSections - 1) {
-        setCurrentSection(currentSection + 1);
-      }
-    } else {
-      if (currentSection > 0) {
-        setCurrentSection(currentSection - 1);
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("wheel", handleScroll);
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
+  export default function HomePage1() {
+    const [currentSection, setCurrentSection] = useState(0);
+    const [loaded, setLoaded] = useState(false); // Add loaded state to control visibility
+    const totalSections = 4;
+  
+    const updateSection = () => {
+      const sections = document.querySelectorAll(".section");
+      sections.forEach((section, index) => {
+        const left = section.querySelector(".left");
+        const right = section.querySelector(".right");
+  
+        if (index === currentSection) {
+          section.style.zIndex = 2; // Ensure the current section is above the others
+          left.style.transform = "translateY(0)";
+          right.style.transform = "translateY(0)";
+        } else if (index < currentSection) {
+          section.style.zIndex = 1; // Ensure previous sections are below the current one
+          left.style.transform = "translateY(-100vh)";
+          right.style.transform = "translateY(100vh)";
+        } else {
+          section.style.zIndex = 1; // Ensure next sections are below the current one
+          left.style.transform = "translateY(100vh)";
+          right.style.transform = "translateY(-100vh)";
+        }
+      });
     };
-  }, [currentSection]);
-
-  useEffect(() => {
-    updateSection();
-  }, [currentSection]);
-
-  return (
-    <>
-    
-      <Navbar ncolor={'bg-transparent'} textcolor={'text-white'} />
-      {/* <style>{`
-        html, body {
-          overflow: hidden;
+  
+    const handleScroll = (event) => {
+      if (event.deltaY > 0) {
+        if (currentSection < totalSections - 1) {
+          setCurrentSection(currentSection + 1);
+        } else {
+          setCurrentSection(0); // Loop to first section
         }
-      `}</style> */}
-      <style>{`
-        container {
-          overflow: hidden;
+      } else {
+        if (currentSection > 0) {
+          setCurrentSection(currentSection - 1);
+        } else {
+          setCurrentSection(totalSections - 1); // Loop to last section
         }
-      `}</style>
-     
-      <div  className="container relative w-screen h-screen overflow-hidden ">
-        <div  className="sm:block hidden">
+      }
+    };
+  
+    useEffect(() => {
+      window.addEventListener("wheel", handleScroll);
+      return () => {
+        window.removeEventListener("wheel", handleScroll);
+      };
+    }, [currentSection]);
+  
+    useEffect(() => {
+      updateSection();
+      setLoaded(true); // Once updateSection has run, mark the page as loaded
+    }, [currentSection]);
+  
+    return (
+      <>
+        <Navbar ncolor={"bg-transparent"} textcolor={"text-white"} />
+  
+        <style>{`
+          .container {
+            overflow: hidden;
+          }
+          .section {
+            visibility: ${loaded ? "visible" : "hidden"}; // Hide sections until page is loaded
+          }
+        `}</style>
+  
+
+      <div className="container relative w-screen h-screen overflow-hidden ">
+        <div className="sm:block hidden">
           <div className="section absolute inset-0 flex justify-center items-center text-white text-4xl transition-transform duration-1000">
             <div className="flex w-full h-full">
               <div className="left w-1/2 h-full flex justify-center items-center transition-transform duration-1000 bg-[#231f20]">
                 <div className="flex items-start justify-start left">
-                  <img src="images9.webp" className="w-full h-screen " />
+                  <img src="images9M.webp" className="w-full h-screen " />
                 </div>
               </div>
               <div className="right w-1/2 h-full flex justify-center items-center transition-transform duration-1000 bg-[#231f20]">
                 <div className="flex flex-col w-[53rem] pl-[5rem] right">
                   <h1 className="text-5xl font-extrabold pheader">
-                    <span className="pcolor pheader">“The best marketing </span>
-                    <br />
-                    doesn’t feel like <br />
-                    marketing”
+                    "Business has only two functions —
+                    <span className="pcolor pheader">
+                      {" "}
+                      marketing and innovation"{" "}
+                    </span>
                   </h1>
-                  <h2 className="text-xl py-10">(Tom Fishburne)</h2>
+                  <h2 className="text-xl py-10"> — Milan Kundera</h2>
                 </div>
               </div>
             </div>
@@ -105,19 +112,17 @@ export default function HomePage1() {
               <div className="left w-1/2 h-full flex justify-center items-center transition-transform duration-1000 bg-white">
                 <div className="flex flex-col w-[53rem] pl-[5rem] pt-10 left">
                   <h1 className="text-5xl font-extrabold pheader text-black">
-                    “In the
-                    <span className="pcolor pheader"> digital world</span>, he
-                    who hesitates is{" "}
-                    <span className="pcolor pheader">abandoned.</span>”
+                    <span className="pcolor pheader"> “Marketing</span>, he is
+                    really just about sharing your
+                    <span className="pcolor pheader">passion.</span>"
                   </h1>
                   <h2 className="text-base py-3 font-bold pcolor">
-                    (Howard Stringer)
+                    — Michael Hyatt
                   </h2>
                   <p className="text-sm text-gray-500 pheader font-semibold py-5">
-                    We are a bunch of creative rebels who aren’t too fond of the
-                    status quo. We believe in taking bold <br />
-                    initiatives and strive to change the world with the magic of
-                    our creativity and innovation.
+                    "We are a coalition of visionary pioneers who defy
+                    convention, harnessing the power of creativity to <br />
+                    forge new paths and inspire meaningful change in our world."
                   </p>
                   <div className="flex flex-row items-center justify-center py-10 gap-32 pr-20">
                     <div className="flex flex-col items-center group">
@@ -143,7 +148,7 @@ export default function HomePage1() {
               </div>
               <div className="right w-1/2 h-full flex justify-center items-center transition-transform duration-1000 bg-white">
                 <div className="flex items-start justify-start right">
-                  <img src="image10.webp" className="w-full h-screen" />
+                  <img src="market.jpg" className="w-full h-screen" />
                 </div>
               </div>
             </div>
@@ -152,7 +157,7 @@ export default function HomePage1() {
             <div className="flex w-full h-full">
               <div className="left w-1/2 h-full flex justify-center items-center transition-transform duration-1000 bg-[#231f20]">
                 <div className="flex items-start justify-start left">
-                  <img src="images11.webp" className="w-full h-screen" />
+                  <img src="target.jpg" className="w-full h-screen" />
                 </div>
               </div>
               <div className="right w-1/2 h-full flex justify-center items-center transition-transform duration-1000 bg-[#231f20]">
@@ -221,7 +226,7 @@ export default function HomePage1() {
                       Send Us An E-Mail
                     </h1>
                     <h1 className="text-xl text-black pheader pcolor cursor-pointer">
-                      info@olivedigital.com
+                      info@Husherz.com
                     </h1>
                   </div>
                   <div>
@@ -249,12 +254,9 @@ export default function HomePage1() {
                   </div>
                 </div>
               </div>
-              <div className="right w-1/2 h-full flex justify-center items-center transition-transform duration-1000 bg-red-400">
+              <div className="right w-1/2 h-full flex justify-center items-center transition-transform duration-1000 bg-white">
                 <div className="flex items-start justify-start right">
-                  <img
-                    src="images12.webp"
-                    className="w-full h-screen"
-                  />
+                  <img src="contactus.jpg" className="w-full h-screen" />
                 </div>
               </div>
             </div>
@@ -262,7 +264,7 @@ export default function HomePage1() {
         </div>
       </div>
       {/* MOBILE  */}
-      <Homepagemobile/>
+      <Homepagemobile />
     </>
   );
 }

@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
 
-
-const Navbar = ({ncolor, textcolor}) => {
+const Navbar = ({ ncolor, textcolor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +13,6 @@ const Navbar = ({ncolor, textcolor}) => {
     const scrollY = window.scrollY;
     setIsScrolled(scrollY > 10); // Adjust the scroll threshold as needed
   };
-
- 
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -37,11 +34,9 @@ const Navbar = ({ncolor, textcolor}) => {
       {/* DESKTOP NAV */}
       <div className="sm:block hidden">
         <nav
-          className={`fixed w-full sm:w-full transition-all duration-300 ease-in-out z-50 ${
-            isScrolled ? {ncolor} : "bg-transparent"
-          }`}
+          className={`fixed h-16 w-full sm:w-full transition-all duration-300 ease-in-out z-50 ${ncolor}`}
         >
-          <div className="flex flex-row sm:h-[5.8rem] justify-between items-center sm:items-startpx-8 sm:px-32 lg:px-24 w-full ">
+          <div className="flex flex-row sm:h-[4.5rem] justify-between items-center sm:items-startpx-8 sm:px-32 lg:px-24 w-full ">
             <div className="logo flex flex-row justify-start">
               <Link href="/">
                 <img
@@ -51,54 +46,59 @@ const Navbar = ({ncolor, textcolor}) => {
               </Link>
             </div>
             <div className="nav flex flex-row justify-end items-center">
-              <ul className="flex justify-end items-center gap-4 lg:gap-4 xl:gap-6 text-sm lg:text-sm xl:text-sm primaryf font-semibold text-black ">
+              <ul className="flex justify-end items-center gap-4 lg:gap-4 xl:gap-6 text-sm lg:text-sm xl:text-[15.3px] primaryf font-semibold text-black ">
                 <li>
-                  <Link href="/" className={`${textcolor} hover:text-[#1F51FF]`}>
+                  <Link
+                    href="/"
+                    className={`${textcolor} hover:text-[#1F51FF]`}
+                  >
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="./About" className={`${textcolor} hover:text-[#1F51FF]`}>
-                   About us
+                  <Link
+                    href="./About"
+                    className={`${textcolor} hover:text-[#1F51FF]`}
+                  >
+                    About us
                   </Link>
                 </li>
                 <li>
-                  <Link href="./Service" className={`${textcolor} hover:text-[#1F51FF]`}>
+                  <Link
+                    href="./Service"
+                    className={`${textcolor} hover:text-[#1F51FF]`}
+                  >
                     Sevices
                   </Link>
                 </li>
-              
-                
-                <li className={`${textcolor} hover:text-[#1F51FF] cursor-pointer`}>
-                 
+
+                <li
+                  className={`${textcolor} hover:text-[#1F51FF] cursor-pointer`}
+                >
+                  <Link
+                    href="./Portfolio"
+                    className={`${textcolor} hover:text-[#1F51FF]`}
+                  >
                     Portfolio
-                 
+                  </Link>
                 </li>
                 <li>
                   <Link
                     href="./DigitalPr"
                     className={`${textcolor} hover:text-[#1F51FF]`}
                   >
-                   Digital Pr
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="./Contact"
-                    className={`${textcolor} hover:text-[#1F51FF]`}
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="./Contact"
-                    className={`${textcolor} hover:text-[#1F51FF]`}
-                  >
-                   Contact us
+                    Digital Pr
                   </Link>
                 </li>
                 
+                <li>
+                  <Link
+                    href="./Contact"
+                    className={`${textcolor} hover:text-[#1F51FF]`}
+                  >
+                    Contact us
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -134,41 +134,41 @@ const Navbar = ({ncolor, textcolor}) => {
           <div
             className={`${
               !isOpen ? "hidden" : "flex"
-            } p-6 bg-gray-900 absolute top-16 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } p-6 bg-white outline outline-black outline-1  absolute top-16 right-0 mx-4 my-2 min-w-[140px] z-10 `}
           >
             <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
               <li
-                className="font-sans font-medium cursor-pointer text-white text-[16px]"
+                className="font-sans font-medium cursor-pointer text-black text-[16px]"
                 onClick={handleToggle}
               >
                 <Link href="/">Home</Link>
               </li>
               <li
-                className="font-sans font-medium cursor-pointer text-white text-[16px]"
+                className="font-sans font-medium cursor-pointer text-black text-[16px]"
                 onClick={handleToggle}
               >
                 <Link href="./About">About Us</Link>
               </li>
               <li
-                className="font-sans font-medium cursor-pointer text-white text-[16px]"
+                className="font-sans font-medium cursor-pointer text-black text-[16px]"
                 onClick={handleToggle}
               >
                 <Link href="./Service">Services</Link>
               </li>
               <li
-                className="font-sans font-medium cursor-pointer text-white text-[16px]"
+                className="font-sans font-medium cursor-pointer text-black text-[16px]"
                 onClick={handleToggle}
               >
-                Portfolio
+                <Link href="./Portfolio">Portfolio</Link>
               </li>
               <li
-                className="font-sans font-medium cursor-pointer text-white text-[16px]"
+                className="font-sans font-medium cursor-pointer text-black text-[16px]"
                 onClick={handleToggle}
               >
                 <Link href="./DigitalPr">Digital Pr</Link>
               </li>
               <li
-                className="font-sans font-medium cursor-pointer text-white text-[16px]"
+                className="font-sans font-medium cursor-pointer text-black text-[16px]"
                 onClick={handleToggle}
               >
                 <Link href="./Contact">Contact Us</Link>
